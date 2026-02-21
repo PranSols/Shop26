@@ -1,31 +1,242 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DealsIndia | Verified Coupons & Online Shopping Deals</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .coupon-dashed { background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23CBD5E1' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e"); }
-    </style>
-<script type="importmap">
-{
-  "imports": {
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
-    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0"
-  }
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Coupon Deals Hub — Save Big Today</title>
+
+<meta name="description" content="Latest coupons, deals and affiliate offers from Amazon, Flipkart, Tata Cliq and ClickBank.">
+
+<style>
+
+body{
+margin:0;
+font-family:Segoe UI, Arial;
+background:#f4f6fb;
 }
+
+header{
+position:sticky;
+top:0;
+background:#0b1f3a;
+color:white;
+padding:15px;
+z-index:1000;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+max-width:1200px;
+margin:auto;
+}
+
+nav a{
+color:white;
+margin:0 10px;
+text-decoration:none;
+font-weight:600;
+}
+
+.hero{
+background:linear-gradient(135deg,#1f4cff,#00c6ff);
+color:white;
+padding:60px 20px;
+text-align:center;
+}
+
+.search{
+padding:14px;
+width:90%;
+max-width:500px;
+border-radius:8px;
+border:none;
+}
+
+.section{
+padding:40px 20px;
+max-width:1200px;
+margin:auto;
+}
+
+.filters{
+text-align:center;
+margin-bottom:20px;
+}
+
+.filters button{
+margin:5px;
+padding:10px 15px;
+border:none;
+background:#e2e6f0;
+cursor:pointer;
+border-radius:6px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 3px 10px rgba(0,0,0,0.08);
+}
+
+.reveal{
+background:#ff5722;
+color:white;
+border:none;
+padding:10px;
+border-radius:6px;
+cursor:pointer;
+width:100%;
+}
+
+.cta{
+background:#2e7d32;
+color:white;
+border:none;
+padding:10px;
+border-radius:6px;
+cursor:pointer;
+width:100%;
+margin-top:10px;
+}
+
+.newsletter{
+background:#0b1f3a;
+color:white;
+padding:40px;
+text-align:center;
+}
+
+footer{
+background:#061428;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+</style>
+
+<script>
+
+function revealCode(id,code,link){
+document.getElementById(id).innerText = code;
+window.open(link,'_blank');
+}
+
+function filterStore(store){
+let cards=document.querySelectorAll('.coupon');
+cards.forEach(card=>{
+card.style.display=(store==='all'||card.dataset.store===store)?'block':'none';
+});
+}
+
 </script>
+
 </head>
-<body class="bg-slate-50 text-slate-900 transition-colors duration-200">
-    <div id="root"></div>
+
+<body>
+
+<header>
+<nav>
+<div><strong>CouponDeals</strong></div>
+<div>
+<a href="#">Home</a>
+<a href="#">Stores</a>
+<a href="#">Categories</a>
+<a href="#">Blog</a>
+<a href="#">Contact</a>
+</div>
+</nav>
+</header>
+
+<section class="hero">
+<h1>Find Best Coupons & Deals</h1>
+<input class="search" placeholder="Search deals...">
+</section>
+
+<section class="section">
+
+<h2>🔥 Trending Coupons</h2>
+
+<div class="filters">
+<button onclick="filterStore('all')">All</button>
+<button onclick="filterStore('amazon')">Amazon</button>
+<button onclick="filterStore('flipkart')">Flipkart</button>
+<button onclick="filterStore('tatacliq')">Tata Cliq</button>
+<button onclick="filterStore('clickbank')">ClickBank</button>
+</div>
+
+<div class="grid">
+
+<div class="card coupon" data-store="amazon">
+<h3>Amazon 10% Off</h3>
+<p id="code1">Click reveal</p>
+<button class="reveal" onclick="revealCode('code1','AAXX22','https://amazon.in')">Reveal Code</button>
+</div>
+
+<div class="card coupon" data-store="flipkart">
+<h3>Flipkart Sale Deal</h3>
+<p id="code2">Click reveal</p>
+<button class="reveal" onclick="revealCode('code2','SAVE10','https://flipkart.com')">Reveal Code</button>
+</div>
+
+<div class="card coupon" data-store="tatacliq">
+<h3>Tata Cliq Offer</h3>
+<p id="code3">Click reveal</p>
+<button class="reveal" onclick="revealCode('code3','CLIQ20','https://tatacliq.com')">Reveal Code</button>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>⭐ Top Affiliate Products</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Best Selling Headphones</h3>
+<p>Premium quality sound.</p>
+<button class="cta" onclick="window.open('#')">Check Deal</button>
+</div>
+
+<div class="card">
+<h3>Smartphone Discount</h3>
+<p>Latest model at great price.</p>
+<button class="cta" onclick="window.open('#')">Buy Now</button>
+</div>
+
+<div class="card">
+<h3>Online Course</h3>
+<p>High income skill training.</p>
+<button class="cta" onclick="window.open('#')">View Offer</button>
+</div>
+
+</div>
+
+</section>
+
+<section class="newsletter">
+<h2>Get Daily Deals</h2>
+<input placeholder="Enter email" style="padding:12px;border-radius:6px;border:none;">
+<button style="padding:12px;margin-left:5px;background:#ff9800;border:none;color:white;border-radius:6px;">Subscribe</button>
+</section>
+
+<footer>
+<p>© 2026 CouponDeals — Affiliate disclosure applies.</p>
+</footer>
+
 </body>
 </html>
