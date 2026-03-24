@@ -28,24 +28,29 @@ font-family:Segoe UI, Arial;
 background:#f4f6fb;
 }
 
-  <style>
+
+  
 header{
-  background: url('https://blogger.googleusercontent.com/img/a/AVvXsEhfbAVNpwXCUNdp9UsfPbyPi3Bc-mEiXYrag3cEAOi4MraNgoLNDkhW2LxlXb2gP5I2VeZyFQ4lpyVhbfGdGfMbPURV3qO_ktqCSE_vW9egD7JlSBGbXjuk64wDB8KCiTT5I50EqB5u_F45YCUJcLErnKH4mK4hkEQkvhgoyh9drehFPWO67UDHQpm0hQhs') no-repeat center center/cover;
+  position:relative;
+  background: url('https://blogger.googleusercontent.com/img/a/AVvXsEhfbAVNpwXCUNdp9UsfPbyPi3Bc-mEiXYrag3cEAOi4MraNgoLNDkhW2LxlXb2gP5I2VeZyFQ4lpyVhbfGdGfMbPURV3qO_ktqCSE_vW9egD7JlSBGbXjuk64wDB8KCiTT5I50EqB5u_F45YCUJcLErnKH4mK4hkEQkvhgoyh9drehFPWO67UDHQpm0hQhs') center/cover no-repeat;
   color:white;
-  padding:40px 20px;
+  padding:70px 20px;
   text-align:center;
 }
-</style>
 
-header{
-position:sticky;
-top:0;
-background:#0b1f3a;
-color:white;
-padding:15px;
-z-index:1000;
+header::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.45);
 }
 
+header h1{
+  position:relative;
+}
+
+
+  
 nav{
 display:flex;
 justify-content:space-between;
