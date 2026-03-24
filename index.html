@@ -262,6 +262,231 @@ card.style.display=(store==='all'||card.dataset.store===store)?'block':'none';
 
 </section>
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Coupon Grid System</title>
+
+<style>
+
+body{
+  font-family: Arial;
+  margin:0;
+  background:#f4f6fb;
+}
+
+header{
+  background:#0b1f3a;
+  color:white;
+  padding:15px;
+  text-align:center;
+}
+
+.search-box{
+  text-align:center;
+  padding:20px;
+}
+
+.search-box input{
+  padding:12px;
+  width:90%;
+  max-width:400px;
+  border-radius:6px;
+  border:1px solid #ccc;
+}
+
+.filters{
+  text-align:center;
+  margin-bottom:15px;
+}
+
+.filters button{
+  margin:5px;
+  padding:8px 15px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  background:#e0e4ef;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+  padding:20px;
+}
+
+.card{
+  background:white;
+  border-radius:10px;
+  padding:20px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+  position:relative;
+}
+
+.badge{
+  position:absolute;
+  top:10px;
+  right:10px;
+  background:#ff3d00;
+  color:white;
+  padding:4px 8px;
+  font-size:12px;
+  border-radius:5px;
+}
+
+.code{
+  background:#f1f3f9;
+  padding:10px;
+  margin:10px 0;
+  border-radius:6px;
+  font-weight:bold;
+  text-align:center;
+}
+
+.btn{
+  width:100%;
+  padding:10px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  margin-top:5px;
+}
+
+.reveal{
+  background:#ff6b00;
+  color:white;
+}
+
+.copy{
+  background:#2e7d32;
+  color:white;
+}
+
+.small{
+  font-size:12px;
+  color:#666;
+  margin-top:8px;
+}
+
+</style>
+
+<script>
+
+function revealCode(id,code,link){
+  document.getElementById(id).innerText = code;
+  window.open(link,'_blank');
+}
+
+function copyCode(code){
+  navigator.clipboard.writeText(code);
+  alert("Copied: " + code);
+}
+
+function filterStore(store){
+  let cards=document.querySelectorAll(".card");
+  cards.forEach(card=>{
+    card.style.display=(store==="all"||card.dataset.store===store)?"block":"none";
+  });
+}
+
+function searchCoupons(){
+  let input=document.getElementById("search").value.toLowerCase();
+  let cards=document.querySelectorAll(".card");
+
+  cards.forEach(card=>{
+    let text=card.innerText.toLowerCase();
+    card.style.display=text.includes(input)?"block":"none";
+  });
+}
+
+</script>
+
+</head>
+
+<body>
+
+<header>
+<h1>🔥 Best Coupons & Deals</h1>
+</header>
+
+<div class="search-box">
+<input id="search" onkeyup="searchCoupons()" placeholder="Search coupons...">
+</div>
+
+<div class="filters">
+<button onclick="filterStore('all')">All</button>
+<button onclick="filterStore('amazon')">Amazon</button>
+<button onclick="filterStore('flipkart')">Flipkart</button>
+<button onclick="filterStore('clickbank')">ClickBank</button>
+</div>
+
+<div class="grid">
+
+<!-- Coupon 1 -->
+<div class="card" data-store="amazon">
+<div class="badge">HOT</div>
+<h3>Amazon Glow Offer</h3>
+<p>Special beauty product discount</p>
+
+<div class="code" id="c1">Click Reveal</div>
+
+<button class="btn reveal" onclick="revealCode('c1','PUREGLO','https://amzn.ltsrn.in/flH')">
+Reveal Deal
+</button>
+
+<button class="btn copy" onclick="copyCode('PUREGLO')">
+Copy Code
+</button>
+
+<p class="small">✔ Verified | ⏳ Limited Time</p>
+</div>
+
+<!-- Coupon 2 -->
+<div class="card" data-store="flipkart">
+<div class="badge">SALE</div>
+<h3>Flipkart 10% Off</h3>
+<p>Electronics mega sale</p>
+
+<div class="code" id="c2">Click Reveal</div>
+
+<button class="btn reveal" onclick="revealCode('c2','SAVE10','
+https://fkrt.ltsrn.in/dyD')">
+Reveal Deal
+</button>
+
+<button class="btn copy" onclick="copyCode('SAVE10')">
+Copy Code
+</button>
+
+<p class="small">✔ Verified | ⏳ Ending Soon</p>
+</div>
+
+<!-- Coupon 3 -->
+<div class="card" data-store="clickbank">
+<div class="badge">TRENDING</div>
+<h3>Online Course Deal</h3>
+<p>High income skills training</p>
+
+<div class="code" id="c3">No Code Needed</div>
+
+<button class="btn reveal" onclick="window.open('https://off6s861n.site/csl?sid=1&aid=6154')">
+Get Deal
+</button>
+
+<p class="small">✔ Trusted Offer</p>
+</div>
+
+</div>
+
+</body>
+</html>
+  
+
 <section class="newsletter">
 <h2>Get Daily Deals</h2>
 <input placeholder="Enter email" style="padding:12px;border-radius:6px;border:none;">
